@@ -31,22 +31,25 @@
   </g>
   
   <!-- Title -->
-  <text x="600" y="320" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="64" font-weight="600" fill="white">
-    I Don't Want to Decide
+  <text x="600" y="300" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="56" font-weight="600" fill="white">
+    Stop Thinking.
+  </text>
+  <text x="600" y="370" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="56" font-weight="600" fill="url(#accent)">
+    Start Doing.
   </text>
   
   <!-- Subtitle -->
-  <text x="600" y="380" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="24" fill="#a1a1aa">
-    AI-powered decisions for everyday choices
+  <text x="600" y="430" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="22" fill="#a1a1aa">
+    Brain tired? Overthinking? Press decide.
   </text>
   
   <!-- Tagline -->
-  <text x="600" y="450" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="18" fill="#71717a">
-    Stop overthinking. Start doing.
+  <text x="600" y="470" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="18" fill="#71717a">
+    Decision fatigue ends here.
   </text>
   
   <!-- Footer -->
   <text x="600" y="570" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" fill="#52525b">
-    youdecide.app • by arcsirius
+    youdecide.arcsirius.com
   </text>
 </svg>

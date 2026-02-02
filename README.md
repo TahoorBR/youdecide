@@ -1,8 +1,8 @@
-# 🧠 I Don't Want to Decide
+# 🧠 Decision Fatigue Ends Here
 
-> AI-powered decision maker that helps you overcome decision fatigue. Stop overthinking, start doing.
+> Stop thinking. Start doing. When your brain is tired, let AI decide.
 
-[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://youdecide.arcsirius.app)
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://youdecide.arcsirius.com)
 [![Made with React](https://img.shields.io/badge/React-18-blue)](https://react.dev)
 [![Powered by Gemini](https://img.shields.io/badge/Gemini-2.5%20Flash-orange)](https://ai.google.dev)
 
@@ -10,17 +10,17 @@
 
 ## ✨ Features
 
-- **🤖 AI-Powered Decisions** - Uses Google Gemini 2.5 Flash to make smart, personalized choices
-- **🎯 Quick Templates** - Pre-built categories: Food, Activities, Work, Workout, Shopping, Custom
-- **🎤 Voice Input** - Add options by speaking (Web Speech API)
-- **😊 Mood & Energy Aware** - Tailors recommendations to how you're feeling
-- **📱 Mobile-First** - Responsive design, works great on all devices
-- **⚡ PWA Ready** - Install as an app on your phone
+- **🧠 Mental Load Relief** - Overthinking? Brain tired? Just press decide
+- **🎯 Quick Templates** - Pre-built: Food, Activities, Work, Workout, Shopping
+- **🎤 Voice Input** - Add options by speaking
+- **😊 Mood & Energy Aware** - Picks based on how you're feeling
+- **📱 Mobile-First** - Works great on all devices
+- **⚡ PWA Ready** - Install as an app
 - **🔒 Privacy First** - Your decisions stay on your device
 
 ## 🚀 Live Demo
 
-**[https://youdecide-seven.vercel.app](https://youdecide-seven.vercel.app)**
+**[https://youdecide.arcsirius.com](https://youdecide.arcsirius.com)**
 
 ## 🛠️ Tech Stack
 

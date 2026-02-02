@@ -1,17 +1,14 @@
-# Robots.txt for I Don't Want to Decide
+# Robots.txt for Decision Fatigue Ends Here
 # https://youdecide.arcsirius.com
 
-# Allow all bots
+# Allow all bots to crawl everything
 User-agent: *
 Allow: /
 
-# Disallow admin/private paths (if any in future)
+# Disallow only API paths
 Disallow: /api/
-Disallow: /*.json$
 
-# Allow important files
-Allow: /manifest.json
-Allow: /sitemap.xml
+# Sitemap location
 
 # Sitemap location
 Sitemap: https://youdecide.arcsirius.com/sitemap.xml

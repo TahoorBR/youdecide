@@ -8,13 +8,13 @@
   <!-- Homepage -->
   <url>
     <loc>https://youdecide.arcsirius.com/</loc>
-    <lastmod>2026-02-02</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-02-03</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://youdecide.arcsirius.com/og-image.png</image:loc>
-      <image:title>I Don't Want to Decide - AI Decision Maker</image:title>
-      <image:caption>AI-powered decision maker that helps overcome decision fatigue</image:caption>
+      <image:title>Decision Fatigue Ends Here - Stop Thinking Start Doing</image:title>
+      <image:caption>Brain tired? Can't decide? Stop overthinking and let AI pick for you instantly.</image:caption>
     </image:image>
   </url>
 

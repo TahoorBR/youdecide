@@ -1,7 +1,7 @@
 {
-  "name": "I Don't Want to Decide",
-  "short_name": "YouDecide",
-  "description": "AI-powered decision maker that helps you overcome decision fatigue. Get personalized recommendations based on your mood and energy level.",
+  "name": "Decision Fatigue Ends Here",
+  "short_name": "Decide",
+  "description": "Brain tired? Stop overthinking. Press decide. Your AI friend picks for you so you can stop thinking and start doing.",
   "start_url": "/",
   "scope": "/",
   "id": "/",
@@ -30,7 +30,7 @@
       "sizes": "1200x630",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "AI Decision Maker Homepage"
+      "label": "Decision Fatigue Ends Here - Stop Thinking Start Doing"
     }
   ],
   "categories": ["utilities", "lifestyle", "productivity"],

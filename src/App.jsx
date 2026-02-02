@@ -545,12 +545,12 @@ export default function App() {
           </motion.div>
           
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white mb-3">
-            I Don't Want to{' '}
-            <span className="gradient-text">Decide</span>
+            Stop Thinking.{' '}
+            <span className="gradient-text">Start Doing.</span>
           </h1>
           
           <p className="text-zinc-500 text-sm sm:text-base max-w-md mx-auto">
-            Let AI make the choice. You just enjoy the relief.
+            Overthinking? Brain tired? Press decide. Decision fatigue ends here.
           </p>
         </motion.header>
 
