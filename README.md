@@ -1,16 +1,119 @@
-# React + Vite
+# 🧠 I Don't Want to Decide
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> AI-powered decision maker that helps you overcome decision fatigue. Stop overthinking, start doing.
 
-Currently, two official plugins are available:
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://youdecide.arcsirius.app)
+[![Made with React](https://img.shields.io/badge/React-18-blue)](https://react.dev)
+[![Powered by Gemini](https://img.shields.io/badge/Gemini-2.5%20Flash-orange)](https://ai.google.dev)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Screenshot](public/og-image.svg)
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **🤖 AI-Powered Decisions** - Uses Google Gemini 2.5 Flash to make smart, personalized choices
+- **🎯 Quick Templates** - Pre-built categories: Food, Activities, Work, Workout, Shopping, Custom
+- **🎤 Voice Input** - Add options by speaking (Web Speech API)
+- **😊 Mood & Energy Aware** - Tailors recommendations to how you're feeling
+- **📱 Mobile-First** - Responsive design, works great on all devices
+- **⚡ PWA Ready** - Install as an app on your phone
+- **🔒 Privacy First** - Your decisions stay on your device
 
-## Expanding the ESLint configuration
+## 🚀 Live Demo
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**[https://youdecide-seven.vercel.app](https://youdecide-seven.vercel.app)**
+
+## 🛠️ Tech Stack
+
+- **Frontend**: React 18 + Vite 5
+- **Styling**: Tailwind CSS 3
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **AI**: Google Gemini 2.5 Flash
+- **Deployment**: Vercel
+
+## 📦 Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/TahoorBR/youdecide.git
+cd youdecide
+
+# Install dependencies
+npm install
+
+# Create environment file
+echo "VITE_GEMINI_API_KEY=your_gemini_api_key_here" > .env.local
+
+# Start development server
+npm run dev
+```
+
+## 🔑 Getting a Gemini API Key
+
+1. Go to [Google AI Studio](https://aistudio.google.com/apikey)
+2. Create a new API key
+3. Add it to your `.env.local` file
+
+## 📱 How to Use
+
+1. **Pick a category** - Choose from Food, Activities, Work, etc.
+2. **Add your options** - Type or use voice input 🎤
+3. **Set your mood & energy** - Let the AI know how you're feeling
+4. **Get your decision** - AI picks the best option with reasoning
+
+## 🗣️ Voice Input
+
+Click the microphone button and speak your options naturally:
+- "Pizza, sushi, and burger"
+- "Watch a movie, read a book, or go for a walk"
+
+The app will parse and add all options automatically.
+
+## 🌐 Deployment
+
+### Vercel (Recommended)
+
+1. Push to GitHub
+2. Import project on [Vercel](https://vercel.com)
+3. Add environment variable: `VITE_GEMINI_API_KEY`
+4. Deploy!
+
+### Manual Build
+
+```bash
+npm run build
+# Output in ./dist
+```
+
+## 📁 Project Structure
+
+```
+youdecide/
+├── public/
+│   ├── manifest.json     # PWA manifest
+│   ├── robots.txt        # SEO
+│   ├── sitemap.xml       # SEO
+│   └── brain.svg         # App icon
+├── src/
+│   ├── App.jsx           # Main app component
+│   ├── geminiService.js  # Gemini AI integration
+│   ├── decisionEngine.js # Fallback logic
+│   ├── useSpeechToText.js# Voice input hook
+│   └── index.css         # Tailwind styles
+├── vercel.json           # Vercel config
+└── index.html            # Entry with SEO meta
+```
+
+## 🤝 Support
+
+If this app helped you make a decision, consider buying me a coffee!
+
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-arcsirius-yellow)](https://buymeacoffee.com/arcsirius)
+
+## 📄 License
+
+MIT © [arcsirius](https://buymeacoffee.com/arcsirius)
+
+---
+
+Made with ❤️ by [arcsirius](https://buymeacoffee.com/arcsirius)
