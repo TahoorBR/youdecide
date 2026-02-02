@@ -67,10 +67,19 @@ export async function makeAIDecision(options, constraints, energy, mood) {
     };
   }
 
+  // Shuffle options to remove position bias
+  const shuffledOptions = [...optionsList].sort(() => Math.random() - 0.5);
+  
+  // Random seed to encourage variety
+  const randomSeed = Math.floor(Math.random() * 1000);
+
   const prompt = `You are a decision-making assistant with a great sense of humor. Your job is to help someone who is tired of making decisions.
 
-The user needs help choosing between these options:
-${optionsList.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
+IMPORTANT: You must be UNBIASED. Do NOT favor common/popular choices. All options are equally valid. Variety is key.
+Random seed for this request: ${randomSeed}
+
+The user needs help choosing between these options (in random order):
+${shuffledOptions.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
 
 Context:
 - Energy level: ${energy} (exhausted/tired/neutral/good/energized)
@@ -78,14 +87,16 @@ Context:
 ${constraints ? `- Constraints/preferences: ${constraints}` : '- No specific constraints'}
 
 Instructions:
-1. Pick ONE option that best fits their current state
-2. Be decisive - don't hedge or say "it depends"
-3. Give a FUNNY, witty, or playful reason (2-3 sentences max). Make them smile or laugh!
-4. Use humor that matches their mood - gentle/dry humor if tired, more energetic jokes if they're feeling good
-5. Be creative - use pop culture references, silly metaphors, or unexpected logic
+1. Pick ONE option - DO NOT default to the most common/popular choice
+2. Treat ALL options as equally valid - no bias toward "safe" picks like pizza, movies, or emails
+3. Let the mood/energy genuinely influence your pick in unexpected ways
+4. Be decisive - don't hedge or say "it depends"
+5. Give a FUNNY, witty, or playful reason (2-3 sentences max). Make them smile or laugh!
+6. Use humor that matches their mood - gentle/dry humor if tired, more energetic jokes if they're feeling good
+7. Be creative - use pop culture references, silly metaphors, or unexpected logic
 
 Respond ONLY in this exact JSON format (no markdown, no code blocks):
-{"decision": "exact option text", "reasoning": "2-3 sentence FUNNY explanation", "confidence": 85}
+{"decision": "exact option text from the list above", "reasoning": "2-3 sentence FUNNY explanation", "confidence": 85}
 
 The confidence should be 60-95 based on how clear the choice is given their context.`;
 

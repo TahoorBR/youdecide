@@ -85,12 +85,12 @@ function TemplateCard({ template, isSelected, onClick }) {
   );
 }
 
-// Energy/Mood selector - more minimal
+// Energy/Mood selector - grid layout with visible scroll
 function StateSelector({ options, value, onChange, label }) {
   return (
     <div className="space-y-3">
       <label className="text-xs font-medium text-zinc-500 uppercase tracking-wider">{label}</label>
-      <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+      <div className="flex flex-wrap gap-2 sm:grid sm:grid-cols-3 md:grid-cols-5">
         {options.map((option) => (
           <motion.button
             key={option.value}
@@ -204,7 +204,7 @@ function DecisionForm({ onDecide, isLoading, onVoiceError }) {
           className="space-y-4"
         >
           <p className="text-center text-zinc-500 text-sm">Choose a category or start from scratch</p>
-          <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide justify-start sm:justify-center">
+          <div className="flex flex-wrap gap-3 justify-center">
             {TEMPLATES.map((template) => (
               <TemplateCard
                 key={template.id}
@@ -271,14 +271,14 @@ function DecisionForm({ onDecide, isLoading, onVoiceError }) {
               )}
             </AnimatePresence>
 
-            <div className="flex gap-2">
+            <div className="flex gap-2 w-full">
               <input
                 type="text"
                 value={currentOption}
                 onChange={(e) => setCurrentOption(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder={isListening ? "Listening..." : selectedTemplate.placeholder}
-                className={`flex-1 bg-white/[0.03] border rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-white/10 focus:bg-white/[0.05] transition-all text-sm ${
+                className={`flex-1 min-w-0 bg-white/[0.03] border rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-white/10 focus:bg-white/[0.05] transition-all text-sm ${
                   isListening ? 'border-violet-500/50 bg-violet-500/5' : 'border-white/5'
                 }`}
               />
@@ -286,7 +286,7 @@ function DecisionForm({ onDecide, isLoading, onVoiceError }) {
               {voiceSupported && (
                 <motion.button
                   onClick={toggleListening}
-                  className={`px-4 py-3 rounded-xl transition-all ${
+                  className={`flex-shrink-0 px-4 py-3 rounded-xl transition-all ${
                     isListening 
                       ? 'bg-violet-500/20 border border-violet-500/30 text-violet-400' 
                       : 'bg-white/5 border border-white/5 text-zinc-400 hover:bg-white/10 hover:text-white'
@@ -302,7 +302,7 @@ function DecisionForm({ onDecide, isLoading, onVoiceError }) {
               <motion.button
                 onClick={addOption}
                 disabled={!currentOption.trim()}
-                className="px-4 py-3 bg-white/5 border border-white/5 rounded-xl text-zinc-400 hover:bg-white/10 hover:text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                className="flex-shrink-0 px-4 py-3 bg-white/5 border border-white/5 rounded-xl text-zinc-400 hover:bg-white/10 hover:text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed"
                 whileTap={{ scale: 0.95 }}
               >
                 <Plus size={18} />
