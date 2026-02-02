@@ -67,7 +67,7 @@ export async function makeAIDecision(options, constraints, energy, mood) {
     };
   }
 
-  const prompt = `You are a decision-making assistant. Your job is to help someone who is tired of making decisions.
+  const prompt = `You are a decision-making assistant with a great sense of humor. Your job is to help someone who is tired of making decisions.
 
 The user needs help choosing between these options:
 ${optionsList.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
@@ -80,12 +80,12 @@ ${constraints ? `- Constraints/preferences: ${constraints}` : '- No specific con
 Instructions:
 1. Pick ONE option that best fits their current state
 2. Be decisive - don't hedge or say "it depends"
-3. Keep reasoning to 2-3 short sentences max
-4. Be warm and reassuring - they're feeling decision fatigue
-5. Match your tone to their energy (if tired, be gentle; if energized, be enthusiastic)
+3. Give a FUNNY, witty, or playful reason (2-3 sentences max). Make them smile or laugh!
+4. Use humor that matches their mood - gentle/dry humor if tired, more energetic jokes if they're feeling good
+5. Be creative - use pop culture references, silly metaphors, or unexpected logic
 
 Respond ONLY in this exact JSON format (no markdown, no code blocks):
-{"decision": "exact option text", "reasoning": "2-3 sentence explanation", "confidence": 85}
+{"decision": "exact option text", "reasoning": "2-3 sentence FUNNY explanation", "confidence": 85}
 
 The confidence should be 60-95 based on how clear the choice is given their context.`;
 
