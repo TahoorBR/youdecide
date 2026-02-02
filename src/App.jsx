@@ -379,7 +379,7 @@ function DecisionForm({ onDecide, isLoading, onVoiceError }) {
 }
 
 // Decision result display - cleaner
-function DecisionResult({ result, onReset }) {
+function DecisionResult({ result, onReset, onTryAgain, onTryAgainWithout, isLoading, canTryAgainWithout }) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
@@ -387,7 +387,7 @@ function DecisionResult({ result, onReset }) {
       exit={{ opacity: 0, scale: 0.95 }}
       className="w-full max-w-xl mx-auto"
     >
-      <div className="glass-strong rounded-2xl p-6 sm:p-8 space-y-6">
+      <div className={`glass-strong rounded-2xl p-6 sm:p-8 space-y-6 ${isLoading ? 'opacity-50 pointer-events-none' : ''}`}>
         {/* Success indicator */}
         <motion.div 
           initial={{ scale: 0 }}
@@ -441,18 +441,47 @@ function DecisionResult({ result, onReset }) {
           <p className="text-zinc-400 text-sm leading-relaxed">{result.reasoning}</p>
         </motion.div>
 
-        {/* Action button */}
-        <motion.button
+        {/* Action buttons */}
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
-          onClick={onReset}
-          className="w-full py-3 bg-white/5 border border-white/10 rounded-xl text-zinc-300 font-medium hover:bg-white/10 transition-all flex items-center justify-center gap-2"
-          whileTap={{ scale: 0.98 }}
+          className="space-y-2"
         >
-          <RefreshCw size={16} />
-          Make another decision
-        </motion.button>
+          {/* Try again buttons row */}
+          <div className="flex gap-2">
+            <motion.button
+              onClick={onTryAgain}
+              disabled={isLoading}
+              className="flex-1 py-3 bg-violet-500/10 border border-violet-500/20 rounded-xl text-violet-300 font-medium hover:bg-violet-500/20 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+              whileTap={{ scale: 0.98 }}
+            >
+              <RefreshCw size={16} className={isLoading ? 'animate-spin' : ''} />
+              Try again
+            </motion.button>
+            {canTryAgainWithout && (
+              <motion.button
+                onClick={onTryAgainWithout}
+                disabled={isLoading}
+                className="flex-1 py-3 bg-orange-500/10 border border-orange-500/20 rounded-xl text-orange-300 font-medium hover:bg-orange-500/20 transition-all flex items-center justify-center gap-2 disabled:opacity-50 text-sm"
+                whileTap={{ scale: 0.98 }}
+              >
+                <X size={16} />
+                Not this, try again
+              </motion.button>
+            )}
+          </div>
+          
+          {/* Start over button */}
+          <motion.button
+            onClick={onReset}
+            className="w-full py-3 bg-white/5 border border-white/10 rounded-xl text-zinc-300 font-medium hover:bg-white/10 transition-all flex items-center justify-center gap-2"
+            whileTap={{ scale: 0.98 }}
+          >
+            <ArrowRight size={16} className="rotate-180" />
+            Start over
+          </motion.button>
+        </motion.div>
 
         {/* Support CTA - prominent after value delivery */}
         <motion.div
@@ -488,6 +517,7 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [isInitialized, setIsInitialized] = useState(false);
+  const [lastContext, setLastContext] = useState(null); // Store last decision context
 
   // Auto-initialize Gemini on mount
   useEffect(() => {
@@ -504,6 +534,12 @@ export default function App() {
       setError('AI not initialized. Please check your API key.');
       return;
     }
+
+    // Store context for retry functionality
+    const optionsList = Array.isArray(options) 
+      ? options 
+      : options.split(/[,\n]/).map(o => o.trim()).filter(Boolean);
+    setLastContext({ options: optionsList, constraints, energy, mood });
 
     setIsLoading(true);
     setError(null);
@@ -522,7 +558,28 @@ export default function App() {
   const handleReset = useCallback(() => {
     setResult(null);
     setError(null);
+    setLastContext(null);
   }, []);
+
+  // Try again with same options
+  const handleTryAgain = useCallback(async () => {
+    if (!lastContext) return;
+    const { options, constraints, energy, mood } = lastContext;
+    await handleDecide(options.join(', '), constraints, energy, mood);
+  }, [lastContext, handleDecide]);
+
+  // Try again but remove the selected option
+  const handleTryAgainWithout = useCallback(async () => {
+    if (!lastContext || !result?.decision) return;
+    const { options, constraints, energy, mood } = lastContext;
+    const filteredOptions = options.filter(opt => opt !== result.decision);
+    if (filteredOptions.length === 0) {
+      setError('No options left to choose from!');
+      return;
+    }
+    setLastContext({ ...lastContext, options: filteredOptions });
+    await handleDecide(filteredOptions.join(', '), constraints, energy, mood);
+  }, [lastContext, result, handleDecide]);
 
   return (
     <div className="min-h-screen relative">
@@ -585,6 +642,10 @@ export default function App() {
                 key="result"
                 result={result}
                 onReset={handleReset}
+                onTryAgain={handleTryAgain}
+                onTryAgainWithout={handleTryAgainWithout}
+                isLoading={isLoading}
+                canTryAgainWithout={lastContext && lastContext.options.length > 1}
               />
             ) : (
               <DecisionForm
