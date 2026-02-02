@@ -1,0 +1,7 @@
+# security.txt - https://securitytxt.org/
+# I Don't Want to Decide
+
+Contact: https://buymeacoffee.com/arcsirius
+Preferred-Languages: en
+Canonical: https://youdecide.arcsirius.com/.well-known/security.txt
+Expires: 2027-02-02T00:00:00.000Z

@@ -1,0 +1,46 @@
+# Robots.txt for I Don't Want to Decide
+# https://youdecide.arcsirius.com
+
+# Allow all bots
+User-agent: *
+Allow: /
+
+# Disallow admin/private paths (if any in future)
+Disallow: /api/
+Disallow: /*.json$
+
+# Allow important files
+Allow: /manifest.json
+Allow: /sitemap.xml
+
+# Sitemap location
+Sitemap: https://youdecide.arcsirius.com/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Google specific
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bing specific  
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Social media bots (allow everything for rich previews)
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Slackbot
+Allow: /
+
+User-agent: Discordbot
+Allow: /

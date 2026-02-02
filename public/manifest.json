@@ -1,0 +1,66 @@
+{
+  "name": "I Don't Want to Decide",
+  "short_name": "YouDecide",
+  "description": "AI-powered decision maker that helps you overcome decision fatigue. Get personalized recommendations based on your mood and energy level.",
+  "start_url": "/",
+  "scope": "/",
+  "id": "/",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "background_color": "#09090b",
+  "theme_color": "#09090b",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/brain.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/brain.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "AI Decision Maker Homepage"
+    }
+  ],
+  "categories": ["utilities", "lifestyle", "productivity"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "prefer_related_applications": false,
+  "handle_links": "preferred",
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "shortcuts": [
+    {
+      "name": "What to Eat",
+      "short_name": "Food",
+      "description": "Get food recommendations",
+      "url": "/?template=food",
+      "icons": [{ "src": "/brain.svg", "sizes": "any" }]
+    },
+    {
+      "name": "What to Do",
+      "short_name": "Activity",
+      "description": "Get activity suggestions",
+      "url": "/?template=activity",
+      "icons": [{ "src": "/brain.svg", "sizes": "any" }]
+    }
+  ],
+  "related_applications": [],
+  "iarc_rating_id": "",
+  "protocol_handlers": []
+}

@@ -1,0 +1,33 @@
+/* TEAM */
+Developer: arcsirius
+Site: https://buymeacoffee.com/arcsirius
+Twitter: @arcsirius
+Location: Earth
+
+/* THANKS */
+Name: Google Gemini AI
+URL: https://ai.google.dev/
+
+Name: Vite
+URL: https://vitejs.dev/
+
+Name: React
+URL: https://react.dev/
+
+Name: Tailwind CSS
+URL: https://tailwindcss.com/
+
+Name: Framer Motion
+URL: https://www.framer.com/motion/
+
+Name: Lucide Icons
+URL: https://lucide.dev/
+
+/* SITE */
+Last update: 2026-02-02
+Language: English
+Doctype: HTML5
+Standards: HTML5, CSS3, ES2022
+Components: React 18, Vite 5, Tailwind CSS 3
+AI: Google Gemini 2.5 Flash
+Software: Visual Studio Code
